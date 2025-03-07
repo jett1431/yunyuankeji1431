@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云源科技 - 企业主页</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo-container">
+                <img src="icon.png" alt="云源科技图标" class="logo-icon">
+                <div class="logo">云源科技</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#products">AI产品</a></li>
+                <li><a href="#digital-human">数字人案例</a></li>
+                <li><a href="#contact">联系我</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero区域 -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hi，我是AI小源</h1>
+            <p>您的AI助手，随时为您解答问题</p>
+            <!-- AI对话框 -->
+            <div class="chat-container" id="chatContainer">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message bot">
+                        您好！我是AI小源，很高兴为您服务。请问有什么我可以帮您的吗？
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <textarea id="userInput" placeholder="请输入您的问题..."></textarea>
+                    <button id="sendMessage">发送</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI产品展示区 -->
+    <section id="products" class="products">
+        <h2>AI产品展示</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="product1.png" alt="AI数字人直播" class="zoomable-image">
+                <h3>AI数字人直播</h3>
+                <p>数字人主播+大模型智能交互</p>
+                <div class="stats">
+                    <span>日总GMV 1亿</span>
+                    <span>互动率 80%</span>
+                </div>
+                <button class="learn-more" onclick="scrollToContact()">了解更多</button>
+            </div>
+            <div class="product-card">
+                <img src="product2.png" alt="视频生产" class="zoomable-image">
+                <h3>视频生产</h3>
+                <p>数字人IP+大模型文案创作</p>
+                <div class="stats">
+                    <span>生产视频 300万</span>
+                    <span>实际效果 200万</span>
+                </div>
+                <button class="learn-more" onclick="scrollToContact()">了解更多</button>
+            </div>
+            <div class="product-card">
+                <img src="product3.png" alt="企业智能" class="zoomable-image">
+                <h3>企业智能</h3>
+                <p>数字员工解决方案</p>
+                <div class="stats">
+                    <span>客户伙伴 200+</span>
+                    <span>降本增效 90%</span>
+                </div>
+                <button class="learn-more" onclick="scrollToContact()">了解更多</button>
+            </div>
+            <div class="product-card">
+                <img src="product4.png" alt="医疗健康" class="zoomable-image">
+                <h3>医疗健康</h3>
+                <p>AI医疗咨询服务</p>
+                <div class="stats">
+                    <span>服务用户 3000+</span>
+                </div>
+                <button class="learn-more" onclick="scrollToContact()">了解更多</button>
+            </div>
+            <div class="product-card">
+                <img src="product5.png" alt="广告营销" class="zoomable-image">
+                <h3>广告营销</h3>
+                <p>数字人营销解决方案</p>
+                <div class="stats">
+                    <span>营销转化率 50%+</span>
+                </div>
+                <button class="learn-more" onclick="scrollToContact()">了解更多</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 数字人直播展示 -->
+    <section id="digital-human" class="digital-human">
+        <div class="showcase">
+            <div class="case-content">
+                <div class="case-image">
+                    <img src="Case.png" alt="数字人案例图片" class="zoomable-image">
+                </div>
+                <div class="case-info">
+                    <h2>大模型+数字人客户成功案例</h2>
+                    <p class="subtitle">Rapid Cost Reduction Leads To Explosive Market Growth</p>
+                    <div class="case-description">
+                        <p>作为全球领先的AI数字人平台公司，风平智能大模型与数字人解决方案，为勇于创新的200+品牌深度服务，探索AI技术创新业务的无限可能......</p>
+                    </div>
+                    <div class="case-stats">
+                        <div class="stat-item">
+                            <h3>200+</h3>
+                            <p>服务品牌</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>90%</h3>
+                            <p>降本增效</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>1亿+</h3>
+                            <p>日GMV</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 全屏预览容器 -->
+    <div class="fullscreen-overlay" id="imageOverlay">
+        <div class="preview-controls">
+            <button class="preview-button" id="zoomIn">
+                <i class="fas fa-search-plus"></i>
+            </button>
+            <button class="preview-button" id="zoomOut">
+                <i class="fas fa-search-minus"></i>
+            </button>
+            <button class="preview-button" id="closePreview">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <img src="" alt="" class="fullscreen-image" id="fullscreenImage">
+        <div class="zoom-hint">使用鼠标滚轮或按钮进行缩放</div>
+    </div>
+
+    <!-- 页脚联系方式 -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" class="social-icon" title="微信" id="wechatIcon">
+                    <i class="fab fa-weixin"></i>
+                </a>
+                <a href="#" class="social-icon" title="抖音" id="douyinIcon">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="#" class="social-icon" title="小红书">
+                    <i class="fas fa-book"></i>
+                </a>
+                <a href="#" class="social-icon" title="QQ" id="qqIcon">
+                    <i class="fab fa-qq"></i>
+                </a>
+            </div>
+            <div class="contact-info">
+                <p id="emailCopy"><i class="fas fa-envelope"></i> Email</p>
+                <p id="telCopy"><i class="fas fa-phone"></i> Tel</p>
+            </div>
+            <div class="copyright">
+                <p>© 2025 云源科技 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 微信二维码模态框 -->
+    <div id="wechatQR" class="qr-modal">
+        <div class="qr-content">
+            <span class="close-qr">&times;</span>
+            <img src="QR code.png" alt="微信二维码">
+            <p>扫码添加微信</p>
+        </div>
+    </div>
+
+    <!-- 添加JWT库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/10.9.0/jsrsasign-all-min.js"></script>
+
+    <script>
+    // 定义联系方式数据
+    const contactData = {
+        wechat: 'XP2000S',
+        douyin: '27040677465',
+        qq: '1561953229',
+        email: 'jake561431@Gmail.com',
+        tel: '13428272749'
+    };
+
+    // 微信二维码模态框
+    const modal = document.getElementById("wechatQR");
+    const wechatIcon = document.getElementById("wechatIcon");
+    const closeBtn = document.getElementsByClassName("close-qr")[0];
+
+    wechatIcon.onclick = function() {
+        modal.style.display = "block";
+        copyText(contactData.wechat); // 同时复制微信号
+        showToast("微信号已复制：" + contactData.wechat);
+    }
+
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // 复制功能
+    function copyText(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            // 这里不需要显示复制成功，因为已经在上面处理了
+        }).catch(err => {
+            console.error('复制失败：', err);
+            showToast("复制失败，请手动复制");
+        });
+    }
+
+    // 处理点击事件
+    document.getElementById('douyinIcon').onclick = () => {
+        copyText(contactData.douyin);
+        showToast("抖音号已复制：" + contactData.douyin);
+    };
+    document.getElementById('qqIcon').onclick = () => {
+        copyText(contactData.qq);
+        showToast("QQ号已复制：" + contactData.qq);
+    };
+    document.getElementById('emailCopy').onclick = () => {
+        copyText(contactData.email);
+        showToast("邮箱已复制：" + contactData.email);
+    };
+    document.getElementById('telCopy').onclick = () => {
+        copyText(contactData.tel);
+        showToast("电话已复制：" + contactData.tel);
+    };
+
+    // 提示框
+    function showToast(message) {
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = message;
+        document.body.appendChild(toast);
+        
+        setTimeout(() => {
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 500);
+            }, 3000);
+        }, 100);
+    }
+
+    // 聊天窗口控制
+    const chatContainer = document.getElementById('chatContainer');
+    const chatTrigger = document.getElementById('chatTrigger');
+    const minimizeChat = document.getElementById('minimizeChat');
+    const chatMessages = document.getElementById('chatMessages');
+    const userInput = document.getElementById('userInput');
+    const sendMessage = document.getElementById('sendMessage');
+
+    // 添加消息到聊天窗口
+    async function addMessage(message, isUser = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+        
+        if (message === '思考中...') {
+            messageDiv.innerHTML = '<span class="typing-dots">思考中</span>';
+        } else {
+            // 如果是AI回复，使用打字机效果
+            if (!isUser && message !== '思考中...') {
+                messageDiv.textContent = '';
+                await typeWriter(messageDiv, message);
+            } else {
+                messageDiv.textContent = message;
+            }
+        }
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        return messageDiv;
+    }
+
+    // 打字机效果函数
+    function typeWriter(element, text, speed = 20) {
+        return new Promise(resolve => {
+            let i = 0;
+            if (text.length > 100) {
+                speed = 10;
+            }
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    setTimeout(type, speed);
+                } else {
+                    resolve();
+                }
+            }
+            type();
+        });
+    }
+
+    // 请求队列管理
+    const requestQueue = {
+        queue: [],
+        processing: false,
+        
+        async add(message) {
+            this.queue.push(message);
+            if (!this.processing) {
+                await this.process();
+            }
+        },
+        
+        async process() {
+            if (this.queue.length === 0) {
+                this.processing = false;
+                return;
+            }
+            
+            this.processing = true;
+            const message = this.queue.shift();
+            
+            try {
+                await sendMessageToServer(message);
+            } catch (error) {
+                console.error('Error processing message:', error);
+            }
+            
+            await this.process();
+        }
+    };
+
+    // 消息缓存
+    const messageCache = {
+        cache: new Map(),
+        maxSize: 50,
+        
+        set(key, value) {
+            if (this.cache.size >= this.maxSize) {
+                const firstKey = this.cache.keys().next().value;
+                this.cache.delete(firstKey);
+            }
+            this.cache.set(key, value);
+        },
+        
+        get(key) {
+            return this.cache.get(key);
+        }
+    };
+
+    // 修改发送消息部分
+    sendMessage.onclick = async function() {
+        const message = userInput.value.trim();
+        if (message) {
+            addMessage(message, true);
+            userInput.value = '';
+            
+            // 添加到请求队列
+            await requestQueue.add(message);
+        }
+    }
+
+    // 发送消息到服务器
+    async function sendMessageToServer(message) {
+        try {
+            const cachedResponse = messageCache.get(message);
+            if (cachedResponse) {
+                await addMessage(cachedResponse, false);
+                return;
+            }
+
+            const thinkingMessage = await addMessage('思考中...', false);
+            thinkingMessage.classList.add('thinking');
+
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 10000);
+
+            const response = await fetch(
+                '/api/chat',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'credentials': 'include'
+                    },
+                    body: JSON.stringify({
+                        message: message
+                    }),
+                    signal: controller.signal
+                }
+            );
+
+            clearTimeout(timeoutId);
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || '网络请求失败');
+            }
+
+            if (thinkingMessage && thinkingMessage.parentNode) {
+                chatMessages.removeChild(thinkingMessage);
+            }
+            
+            let fullResponse = '';
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+
+            while (true) {
+                const { value, done } = await reader.read();
+                if (done) break;
+                
+                const chunk = decoder.decode(value);
+                const lines = chunk.split('\n');
+                
+                for (const line of lines) {
+                    if (line.startsWith('data: ')) {
+                        const data = JSON.parse(line.slice(6));
+                        if (data === '[DONE]') {
+                            messageCache.set(message, fullResponse);
+                            break;
+                        }
+                        if (data.content) {
+                            fullResponse += data.content;
+                            const messageDiv = document.createElement('div');
+                            messageDiv.className = 'message bot';
+                            messageDiv.textContent = fullResponse;
+                            chatMessages.appendChild(messageDiv);
+                            chatMessages.scrollTop = chatMessages.scrollHeight;
+                        }
+                    }
+                }
+            }
+
+        } catch (error) {
+            console.error('Error:', error);
+            if (thinkingMessage && thinkingMessage.parentNode) {
+                chatMessages.removeChild(thinkingMessage);
+            }
+            if (error.name === 'AbortError') {
+                await addMessage('抱歉，响应时间过长，请重试');
+            } else {
+                await addMessage(`抱歉，出现了一些问题：${error.message}`);
+            }
+        }
+    }
+
+    // 支持Enter键发送消息
+    userInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendMessage.click();
+        }
+    });
+
+    // 更新图片预览功能
+    const zoomableImages = document.querySelectorAll('.zoomable-image');
+    const imageOverlay = document.getElementById('imageOverlay');
+    const fullscreenImage = document.getElementById('fullscreenImage');
+    const zoomInBtn = document.getElementById('zoomIn');
+    const zoomOutBtn = document.getElementById('zoomOut');
+    const closePreviewBtn = document.getElementById('closePreview');
+    
+    let currentScale = 1;
+    let isDragging = false;
+    let startX, startY, translateX = 0, translateY = 0;
+
+    zoomableImages.forEach(img => {
+        img.addEventListener('click', () => {
+            fullscreenImage.src = img.src;
+            fullscreenImage.alt = img.alt;
+            currentScale = 1;
+            translateX = 0;
+            translateY = 0;
+            updateImageTransform();
+            imageOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // 图片拖动功能
+    fullscreenImage.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.clientX - translateX;
+        startY = e.clientY - translateY;
+        fullscreenImage.style.cursor = 'grabbing';
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        translateX = e.clientX - startX;
+        translateY = e.clientY - startY;
+        updateImageTransform();
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+        fullscreenImage.style.cursor = 'move';
+    });
+
+    // 鼠标滚轮缩放
+    imageOverlay.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        const delta = e.deltaY * -0.01;
+        currentScale = Math.min(Math.max(0.5, currentScale + delta), 3);
+        updateImageTransform();
+    });
+
+    // 缩放按钮功能
+    zoomInBtn.addEventListener('click', () => {
+        currentScale = Math.min(currentScale + 0.2, 3);
+        updateImageTransform();
+    });
+
+    zoomOutBtn.addEventListener('click', () => {
+        currentScale = Math.max(currentScale - 0.2, 0.5);
+        updateImageTransform();
+    });
+
+    // 关闭预览
+    closePreviewBtn.addEventListener('click', closePreview);
+    imageOverlay.addEventListener('click', (e) => {
+        if (e.target === imageOverlay) {
+            closePreview();
+        }
+    });
+
+    function closePreview() {
+        imageOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+        currentScale = 1;
+        translateX = 0;
+        translateY = 0;
+    }
+
+    function updateImageTransform() {
+        fullscreenImage.style.transform = 
+            `translate(-50%, -50%) translate(${translateX}px, ${translateY}px) scale(${currentScale})`;
+    }
+
+    // ESC键关闭全屏预览
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && imageOverlay.classList.contains('active')) {
+            closePreview();
+        }
+    });
+
+    // 滚动到联系我们部分
+    function scrollToContact() {
+        document.getElementById('contact').scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+    </script>
+</body>
+</html> 

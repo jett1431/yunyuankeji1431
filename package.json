@@ -1,0 +1,14 @@
+{
+  "name": "your-project",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    // ... your dependencies
+  }
+} 
